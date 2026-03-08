@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Zehra İŞIK | Teknik Bilişim </title>
+    <style>
+        :root {
+            --ana-mavi: #1e3a8a;
+            --internet-renk: #f59e0b;
+            --ag-renk: #0891b2;
+            --donanim-renk: #dc2626;
+            --hakkimda-renk: #7c3aed;
+            --arka-plan: #f8fafc;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            background-color: var(--arka-plan);
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            display: flex;
+            max-width: 1300px;
+            margin: 30px auto;
+            gap: 25px;
+            padding: 0 20px;
+        }
+
+        nav {
+            flex: 1;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        nav h3 { color: var(--ana-mavi); border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
+
+        nav ul { list-style: none; padding: 0; }
+        nav ul li a {
+            display: block;
+            padding: 12px;
+            color: #475569;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            background: #eff6ff;
+            color: var(--ana-mavi);
+        }
+
+        main { flex: 4; }
+
+        .ders-kart {
+            display: none;
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-left: 12px solid var(--ana-mavi);
+        }
+
+        .ders-kart.active { display: block; }
+
+        .liste-madde {
+            margin-bottom: 25px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .liste-madde::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            font-size: 1.8em;
+            line-height: 1.2;
+        }
+
+        .internet-nokta::before { color: var(--internet-renk); }
+        .ag-nokta::before { color: var(--ag-renk); }
+        .donanim-nokta::before { color: var(--donanim-renk); }
+        .hakkimda-nokta::before { color: var(--hakkimda-renk); }
+
+        .terim-baslik { font-size: 1.3em; font-weight: bold; display: block; margin-bottom: 5px; }
+        
+        .internet-t { color: var(--internet-renk); }
+        .ag-t { color: var(--ag-renk); }
+        .donanim-t { color: var(--donanim-renk); }
+        .hakkimda-t { color: var(--hakkimda-renk); }
+
+        .aciklama { display: block; color: #475569; font-size: 1.1em; }
+
+        footer { text-align: center; padding: 40px; color: #94a3b8; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>ZEHRA İŞIK - Teknik Bilişim Portalı</h1>
+    <p>Batman Üniversitesi | Bilgisayar Teknolojisi Ders Notları</p>
+</header>
+
+<div class="container">
+    <nav>
+        <h3>Dersler</h3>
+        <ul>
+            <li><a onclick="goster('internet')" id="btn-internet" class="active">İnternet Programcılığı-1</a></li>
+            <li><a onclick="goster('ag')" id="btn-ag">Ağ Temelleri</a></li>
+            <li><a onclick="goster('donanim')" id="btn-donanim">Bilgisayar Donanımı</a></li>
+            <li><a onclick="goster('hakkimda')" id="btn-hakkimda">Hakkımda</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="internet" class="ders-kart active" style="border-color: var(--internet-renk);">
+            <h2 class="internet-t">İnternet Programcılığı-1 Notları</h2>
+            
+            <div class="liste-madde internet-nokta">
+                <span class="terim-baslik internet-t">Web Sunucusu ve İstemci</span>
+                <span class="aciklama">Sunucu (Server), bilgiyi paylaşan donanımdır. İstemci (Client) ise bu hizmeti alan kullanıcı bilgisayarıdır.</span>
+            </div>
+
+            <div class="liste-madde internet-nokta">
+                <span class="terim-baslik internet-t">Statik ve İnteraktif Sayfalar</span>
+                <span class="aciklama">Sadece bilgi sunan sayfalar statik, kullanıcının işlem yapabildiği sayfalar interaktiftir.</span>
+            </div>
+
+            <div class="liste-madde internet-nokta">
+                <span class="terim-baslik internet-t">Localhost Kavramı</span>
+                <span class="aciklama">Bir bilgisayarın kendi yerel ağ adresidir ve IP olarak genellikle 127.0.0.1 kullanılır.</span>
+            </div>
+
+            <div class="liste-madde internet-nokta">
+                <span class="terim-baslik internet-t">Dosya Uzantıları</span>
+                <span class="aciklama">Dosya türünü belirleyen bölümdür. Örneğin; .html, .php veya kurulum dosyası olan .msi gibi.</span>
+            </div>
+        </section>
+
+        <section id="ag" class="ders-kart" style="border-color: var(--ag-renk);">
+            <h2 class="ag-t">Ağ Temelleri Notları</h2>
+
+            <div class="liste-madde ag-nokta">
+                <span class="terim-baslik ag-t">Seri ve Paralel İletişim</span>
+                <span class="aciklama">Verilerin tek bir hat üzerinden (Seri) veya birden fazla kanaldan aynı anda (Paralel) gönderilmesidir.</span>
+            </div>
+
+            <div class="liste-madde ag-nokta">
+                <span class="terim-baslik ag-t">Ağ Topolojileri</span>
+                <span class="aciklama">Bilgisayarların diziliş biçimidir: Yol (Bus), Yıldız (Star), Ağaç (Tree) ve Halka (Ring).</span>
+            </div>
+
+            <div class="liste-madde ag-nokta">
+                <span class="terim-baslik ag-t">OSI Katmanları (7 Katman)</span>
+                <span class="aciklama">Fiziksel, Veri İletim, Ağ, Taşıma, Oturum, Sunum ve Uygulama katmanlarından oluşur.</span>
+            </div>
+
+            <div class="liste-madde ag-nokta">
+                <span class="terim-baslik ag-t">Aktif Cihazlar</span>
+                <span class="aciklama">Hub, Switch (Anahtar), Router (Yönlendirici) ve Modem gibi ağ trafiğini yöneten cihazlardır.</span>
+            </div>
+        </section>
+
+        <section id="donanim" class="ders-kart" style="border-color: var(--donanim-renk);">
+            <h2 class="donanim-t">Bilgisayar Donanımı Notları</h2>
+
+            <div class="liste-madde donanim-nokta">
+                <span class="terim-baslik donanim-t">Temel Birimler</span>
+                <span class="aciklama">Giriş (Klavye, Fare), Çıkış (Ekran, Yazıcı), Depolama (HDD, SSD) ve İşlem (CPU) birimleridir.</span>
+            </div>
+
+            <div class="liste-madde donanim-nokta">
+                <span class="terim-baslik donanim-t">Yazıcı Teknolojileri</span>
+                <span class="aciklama">Nokta vuruşlu, Lazer (Tonerli) ve Mürekkep Püskürtmeli (Kartuşlu) yazıcılar kullanılır.</span>
+            </div>
+
+            <div class="liste-madde donanim-nokta">
+                <span class="terim-baslik donanim-t">USB (Evrensel Seri Yol)</span>
+                <span class="aciklama">Dış donanımların bilgisayara tak-çalıştır mantığıyla bağlanmasını sağlayan bağlantı türüdür.</span>
+            </div>
+
+            <div class="liste-madde donanim-nokta">
+                <span class="terim-baslik donanim-t">Anakart ve CPU</span>
+                <span class="aciklama">Tüm parçaların birleştiği ana devre kartı ve işlemlerin yapıldığı işlemcidir.</span>
+            </div>
+        </section>
+
+        <section id="hakkimda" class="ders-kart" style="border-color: var(--hakkimda-renk);">
+            <h2 class="hakkimda-t">Hakkımda</h2>
+            <div class="liste-madde hakkimda-nokta">
+                <span class="terim-baslik hakkimda-t">Proje Sahibi</span>
+                <span class="aciklama">
+                    <strong>Ad Soyad:</strong> Zehra İŞIK<br>
+                    <strong>Okul:</strong> Batman Üniversitesi<br>
+                    <strong>Bölüm:</strong> Bilgisayar Teknolojisi (1. Sınıf)
+                </span>
+            </div>
+        </section>
+    </main>
+</div>
+
+<footer>
+    Zehra İŞIK | Teknik Bilişim Portalı © 2026
+</footer>
+
+<script>
+    function goster(id) {
+        var kartlar = document.getElementsByClassName('ders-kart');
+        for (var i = 0; i < kartlar.length; i++) {
+            kartlar[i].style.display = 'none';
+        }
+        var butonlar = document.querySelectorAll('nav ul li a');
+        for (var j = 0; j < butonlar.length; j++) {
+            butonlar[j].classList.remove('active');
+        }
+        document.getElementById(id).style.display = 'block';
+        document.getElementById('btn-' + id).classList.add('active');
+    }
+</script>
+
+</body>
+</html>
